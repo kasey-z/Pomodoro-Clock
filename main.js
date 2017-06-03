@@ -4,7 +4,7 @@ $(document).ready(function(){
   var session=parseInt(sLow.text());
   var breaks=parseInt(bLow.text());
   var arr=$("#clock").text().split(':')
-  var hour=parseInt(arr[0]);
+  $hour=parseInt(arr[0]);
   var minute=parseInt(arr[1]);
   var clock=$("#clock");
 
@@ -12,12 +12,15 @@ $(document).ready(function(){
   $(".plus.session").on("click",function(){
     session=session+1
     sLow.text(session);
-
+    $hour=session;
+    clockFace($hour, minute);
   });
 
   $(".minor.session").on("click",function(){
      session=session-1;
      sLow.text(session);
+     $hour=session;
+     clockFace(hour, minute);
   });
 
   $(".plus.break").on("click",function(){
@@ -44,4 +47,16 @@ $(document).ready(function(){
       top:'0'},100);
   });
 
+   $('.stop').on("click",function(){
+     clockFace($hour, 0);
+   });
+
+
 });
+
+function clockFace (hour, minute){
+   if (minute<10){ minute='0' + minute}
+   else {minute=minute }
+   time=hour + ':' + minute;
+   $("#clock").text(time);
+};

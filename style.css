@@ -55,7 +55,7 @@ body{
 /*up is css reset*/
 
 body{
-  background: linear-gradient(to bottom, #b6cbed, white);
+  background-color: #bbc8cc;
   font-family: 'Futura';
   color:white;
 }

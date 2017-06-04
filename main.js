@@ -75,9 +75,6 @@ $(document).ready(function(){
     $second=parseInt($arr[1]);
     $intervalId=setInterval(startClock, 1000);
 
-
-
-
     $('.pause').on('click',function(){
       clearInterval($intervalId);
     });
@@ -106,6 +103,8 @@ $(document).ready(function(){
   function clockFace (minute, second){
      if (second<10){ second='0' + second}
      else {second=second }
+     if (minute<10){ minute='0' + minute}
+     else {minute=minute }
      time=minute + ':' + second;
      $("#clock").text(time);
   };
